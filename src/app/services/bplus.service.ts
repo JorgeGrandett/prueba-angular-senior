@@ -11,12 +11,8 @@ export class BplusService {
   url: string = "";
 
   constructor(private http: HttpClient) {
-    if (environment.production) {
-      this.url = "localhost/3001/demo/";
-    }
-    else {
-      this.url = "localhost/3001/demo/";
-    }
+    this.url = (environment.production) ? "localhost/3001/demo/" : "localhost/3001/demo/";
+
   }
 
   getAll () {

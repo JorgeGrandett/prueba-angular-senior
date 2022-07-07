@@ -1,3 +1,61 @@
-<div>
+<div *ngIf="opcion == 0">
+    <div>
+        <h1>Almacenamiento de datos usando Arbol B+ y archivos con Spring Boot y Angular</h1>
+    </div>
+
+    <div>
+        <button (click)="opcion = 1; limpiarDatos()">Añadir Cliente</button>
+        <button (click)="opcion = 2; limpiarDatos()">Listar todos los Clientes</button>
+        <button (click)="opcion = 3; limpiarDatos()">Buscar un cliente</button>
+        <button (click)="opcion = 4; limpiarDatos()">Modificar un cliente</button>
+        <button (click)="opcion = 5; limpiarDatos()">Eliminar un cliente</button>
+    </div>
+</div>
+
+<div *ngIf="opcion == 1" >
+    <div>
+        <h2>Añadir nuevo cliente</h2>
+    </div>
     
+    <div>
+        <div><input type="text" name="nombres" id="" placeholder="Nombres" [(ngModel)]="datos.nombres" required></div>
+        <div><input type="text" name="apellidos" id="" placeholder="Apellidos" [(ngModel)]="datos.apellidos" required></div>
+        <div><input type="number" name="cedula" id="" placeholder="Cedula" [(ngModel)]="datos.cedula" required></div>
+        <div><input type="text" name="direccion" id="" placeholder="Direccion" [(ngModel)]="datos.direccion" required></div>
+        <div><input type="number" name="edad" id="" placeholder="Edad" [(ngModel)]="datos.edad" required></div>
+        <button (click)="addCliente(); opcion = 1">Guardar</button>
+    </div>
+
+    <button (click)="opcion = 0">Regresar</button>
+</div>
+
+<div *ngIf="opcion == 2">
+    <div>
+        <h2>Listado de todos los clientes</h2>
+    </div>
+
+    <button (click)="opcion = 0">Regresar</button>
+</div>
+
+<div *ngIf="opcion == 3">
+    <div>
+        <h2>Buscar un cliente</h2>
+    </div>
+    <div><input type="number" name="cedulabuscar" id="" placeholder="Cedula" required></div>
+
+   <button (click)="opcion = 0">Regresar</button>
+</div>
+
+<div *ngIf="opcion == 4">
+    <div>
+        <h2>Actualizar datos de un cliente</h2>
+    </div>
+    <button (click)="opcion = 0">Regresar</button>
+</div>
+
+<div *ngIf="opcion == 5">
+    <div>
+        <h2>Eliminar un cliente</h2>
+    </div>
+    <button (click)="opcion = 0">Regresar</button>
 </div>
