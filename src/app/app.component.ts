@@ -12,7 +12,7 @@ import { BplusService } from './services/bplus.service';
 export class AppComponent implements OnInit {
   
   datos : clienteData = {
-    nombres: null,
+    nombre: null,
     apellidos: null,
     cedula: null,
     direccion: null,
@@ -20,6 +20,8 @@ export class AppComponent implements OnInit {
   };
   opcion : number = null;
   auxCedula : number = null;
+  response : any;
+
 
   constructor(private bPlus :BplusService) {
     this.opcion = 0;
@@ -31,33 +33,45 @@ export class AppComponent implements OnInit {
 
   limpiarDatos () {
     this.datos = {
-      nombres: null,
+      nombre: null,
       apellidos: null,
       cedula: null,
       direccion: null,
       edad: null
     };
     this.auxCedula = null;
+    this.response = null;
   }
 
-  addCliente() {
-    console.log(this.bPlus.createCliente(this.datos)); 
+  async addCliente() {
+    for (const key in this.datos) {
+      if (this.datos[key as keyof typeof this.datos] == null) {
+        return alert("Falta uno o varios campos");
+      }
+    }
+    this.bPlus.createCliente(this.datos).subscribe((respuesta) => {console.log(respuesta); this.limpiarDatos();}); 
   }
 
   listClientes () {
-    console.log(this.bPlus.getAll()); 
+    this.bPlus.getAll().subscribe((respuesta) => {this.response = respuesta; console.log(this.response); this.limpiarDatos();});
   }
 
   searchCliente () {
-    console.log(this.bPlus.getByCedula(this.auxCedula));
+    this.bPlus.getByCedula(this.auxCedula).subscribe((respuesta) => {this.response = respuesta; console.log(this.response); this.limpiarDatos();});
   }
 
   updateCliente (){
-    console.log(this.bPlus.updateClienteByCedula(this.auxCedula, this.datos));
+    if(this.auxCedula == null) {
+      return alert("Especifique la cedula del cliente que desea editar");
+    }
+    this.bPlus.updateClienteByCedula(this.auxCedula, this.datos).subscribe((respuesta) => {this.response = respuesta; console.log(this.response); this.limpiarDatos();});
   }
 
   deleteCliente () {
-    console.log(this.bPlus.deleteClienteByCedula(this.auxCedula));
+    if(this.auxCedula == null) {
+      return alert("Especifique la cedula del cliente que desea eliminar");
+    }
+    this.bPlus.deleteClienteByCedula(this.auxCedula).subscribe((respuesta) => {this.response = respuesta; console.log(this.response); this.limpiarDatos();});
   }
 
 }

@@ -1,5 +1,5 @@
 export interface clienteData {
-    nombres: string;
+    nombre: string;
     apellidos: string;
     cedula: number;
     direccion: string;

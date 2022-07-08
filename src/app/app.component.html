@@ -5,7 +5,7 @@
 
     <div>
         <button (click)="opcion = 1; limpiarDatos()">Añadir Cliente</button>
-        <button (click)="opcion = 2; limpiarDatos()">Listar todos los Clientes</button>
+        <button (click)="opcion = 2; limpiarDatos(); listClientes()">Listar todos los Clientes</button>
         <button (click)="opcion = 3; limpiarDatos()">Buscar un cliente</button>
         <button (click)="opcion = 4; limpiarDatos()">Modificar un cliente</button>
         <button (click)="opcion = 5; limpiarDatos()">Eliminar un cliente</button>
@@ -18,11 +18,11 @@
     </div>
     
     <div>
-        <div><input type="text" name="nombres" id="" placeholder="Nombres" [(ngModel)]="datos.nombres" required></div>
-        <div><input type="text" name="apellidos" id="" placeholder="Apellidos" [(ngModel)]="datos.apellidos" required></div>
-        <div><input type="number" name="cedula" id="" placeholder="Cedula" [(ngModel)]="datos.cedula" required></div>
-        <div><input type="text" name="direccion" id="" placeholder="Direccion" [(ngModel)]="datos.direccion" required></div>
-        <div><input type="number" name="edad" id="" placeholder="Edad" [(ngModel)]="datos.edad" required></div>
+        <div><input type="text" name="nombres" id="" placeholder="Nombres" [(ngModel)]="datos.nombre"></div>
+        <div><input type="text" name="apellidos" id="" placeholder="Apellidos" [(ngModel)]="datos.apellidos"></div>
+        <div><input type="number" name="cedula" id="" placeholder="Cedula" [(ngModel)]="datos.cedula"></div>
+        <div><input type="text" name="direccion" id="" placeholder="Direccion" [(ngModel)]="datos.direccion"></div>
+        <div><input type="number" name="edad" id="" placeholder="Edad" [(ngModel)]="datos.edad"></div>
         <button (click)="addCliente(); opcion = 1">Guardar</button>
     </div>
 
@@ -41,8 +41,10 @@
     <div>
         <h2>Buscar un cliente</h2>
     </div>
-    <div><input type="number" name="cedulabuscar" id="" placeholder="Cedula" required></div>
-
+    <div>
+        <input type="number" name="cedulabuscar" id="" [(ngModel)]="auxCedula" placeholder="Cedula" >
+        <button (click)="searchCliente(); opcion = 3">Buscar</button>
+    </div>
    <button (click)="opcion = 0">Regresar</button>
 </div>
 
@@ -50,6 +52,18 @@
     <div>
         <h2>Actualizar datos de un cliente</h2>
     </div>
+    <div>
+        <input type="number" name="cedulaEditar" id="" [(ngModel)]="auxCedula" placeholder="Cedula">
+    </div>
+    <div>
+        <div><input type="text" name="nombres" id="" placeholder="Nombres" [(ngModel)]="datos.nombre"></div>
+        <div><input type="text" name="apellidos" id="" placeholder="Apellidos" [(ngModel)]="datos.apellidos"></div>
+        <div><input type="number" name="cedula" id="" placeholder="Cedula" [(ngModel)]="datos.cedula"></div>
+        <div><input type="text" name="direccion" id="" placeholder="Direccion" [(ngModel)]="datos.direccion"></div>
+        <div><input type="number" name="edad" id="" placeholder="Edad" [(ngModel)]="datos.edad"></div>
+        <button (click)="updateCliente(); opcion = 4">Actualizar</button>
+    </div>
+
     <button (click)="opcion = 0">Regresar</button>
 </div>
 
@@ -57,5 +71,10 @@
     <div>
         <h2>Eliminar un cliente</h2>
     </div>
-    <button (click)="opcion = 0">Regresar</button>
+    <div>
+        <input type="number" name="cedulaEliminar" id="" [(ngModel)]="auxCedula" placeholder="Cedula" >
+        <button (click)="deleteCliente(); opcion = 5">Buscar</button>
+    </div>
+
+    <button (click)="opcion = 0; ">Regresar</button>
 </div>

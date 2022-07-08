@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {clienteData} from 'src/app/model/cliente';
 import { environment } from '../../environments/environment';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,28 +12,27 @@ export class BplusService {
   url: string = "";
 
   constructor(private http: HttpClient) {
-    this.url = (environment.production) ? "localhost/3001/demo/" : "localhost/3001/demo/";
-
+    this.url = (environment.production) ? "http://localhost:3001/demo" : "http://localhost:3001/demo";
   }
 
-  getAll () {
-    return this.http.get(`${this.url}/viewClientes`);
+  getAll (): Observable<clienteData[]> {
+    return this.http.get<clienteData[]>(`${this.url}/viewClientes`);
   }
 
-  getByCedula(cedula: number) {
-    return this.http.get(`${this.url}/viewCliente?cedula=${cedula}`)
+  getByCedula(cedula: number): Observable<clienteData>  {
+    return this.http.get<clienteData>(`${this.url}/viewCliente?cedula=${cedula}`);
   }
 
-  createCliente (data: clienteData) {
-    return this.http.post(`${this.url}/addCliente`, data);
+  createCliente (data: clienteData): Observable <Boolean> {
+    return this.http.post<Boolean>(`${this.url}/addCliente`, data);
   }
 
-  updateClienteByCedula (cedula: number, data:clienteData) {
-    return this.http.put(`${this.url}/updateCliente?cedula=${cedula}`, data)
+  updateClienteByCedula (cedula: number, data:clienteData): Observable<Boolean> {
+    return this.http.put<Boolean>(`${this.url}/updateCliente?cedula=${cedula}`, data);
   }
 
-  deleteClienteByCedula(cedula: number) {
-    return this.http.delete(`${this.url}/deleteCliente?cedula=${cedula}`);
+  deleteClienteByCedula(cedula: number): Observable<Boolean> {
+    return this.http.delete<Boolean>(`${this.url}/deleteCliente?cedula=${cedula}`);
   }
 
 }
