@@ -1,9 +1,9 @@
 <div *ngIf="opcion == 0">
     <div>
-        <h1>Almacenamiento de datos usando Arbol B+ y archivos con Spring Boot y Angular</h1>
+        <h1>Almacenamiento de datos usando Arbol B+ y archivos</h1>
     </div>
 
-    <div>
+    <div class="optInit">
         <button (click)="opcion = 1; limpiarDatos()">Añadir Cliente</button>
         <button (click)="opcion = 2; limpiarDatos(); listClientes()">Listar todos los Clientes</button>
         <button (click)="opcion = 3; limpiarDatos()">Buscar un cliente</button>
@@ -17,7 +17,7 @@
         <h2>Añadir nuevo cliente</h2>
     </div>
     
-    <div>
+    <div class="addClienteInputs">
         <div><input type="text" name="nombres" id="" placeholder="Nombres" [(ngModel)]="datos.nombre"></div>
         <div><input type="text" name="apellidos" id="" placeholder="Apellidos" [(ngModel)]="datos.apellidos"></div>
         <div><input type="number" name="cedula" id="" placeholder="Cedula" [(ngModel)]="datos.cedula"></div>
@@ -26,36 +26,44 @@
         <button (click)="addCliente(); opcion = 1">Guardar</button>
     </div>
 
-    <button (click)="opcion = 0">Regresar</button>
+    <div class="btnRegresar">
+        <button (click)="opcion = 0">Regresar</button>
+    </div>
 </div>
 
 <div *ngIf="opcion == 2">
+    
     <div>
-        <h2>Listado de todos los clientes</h2>
+        <h2>Listar todos los cLientes</h2>
     </div>
 
-    <button (click)="opcion = 0">Regresar</button>
+    <div class="btnRegresar">
+        <button (click)="opcion = 0">Regresar</button>
+    </div>
 </div>
 
 <div *ngIf="opcion == 3">
     <div>
         <h2>Buscar un cliente</h2>
     </div>
-    <div>
+    <div class="buscarInputs">
         <input type="number" name="cedulabuscar" id="" [(ngModel)]="auxCedula" placeholder="Cedula" >
         <button (click)="searchCliente(); opcion = 3">Buscar</button>
     </div>
-   <button (click)="opcion = 0">Regresar</button>
+    <div class="btnRegresar">
+        <button (click)="opcion = 0">Regresar</button>
+    </div>
+   
 </div>
 
 <div *ngIf="opcion == 4">
     <div>
         <h2>Actualizar datos de un cliente</h2>
     </div>
-    <div>
-        <input type="number" name="cedulaEditar" id="" [(ngModel)]="auxCedula" placeholder="Cedula">
+    <div class="actualizarInput">
+        <input type="number" name="cedulaEditar" id="" [(ngModel)]="auxCedula" placeholder="Cedula a buscar">
     </div>
-    <div>
+    <div class="actualizarImputs">
         <div><input type="text" name="nombres" id="" placeholder="Nombres" [(ngModel)]="datos.nombre"></div>
         <div><input type="text" name="apellidos" id="" placeholder="Apellidos" [(ngModel)]="datos.apellidos"></div>
         <div><input type="number" name="cedula" id="" placeholder="Cedula" [(ngModel)]="datos.cedula"></div>
@@ -64,17 +72,21 @@
         <button (click)="updateCliente(); opcion = 4">Actualizar</button>
     </div>
 
-    <button (click)="opcion = 0">Regresar</button>
+    <div class="btnRegresar">
+        <button (click)="opcion = 0">Regresar</button>
+    </div>
 </div>
 
 <div *ngIf="opcion == 5">
     <div>
         <h2>Eliminar un cliente</h2>
     </div>
-    <div>
+    <div class="buscarInputs">
         <input type="number" name="cedulaEliminar" id="" [(ngModel)]="auxCedula" placeholder="Cedula" >
         <button (click)="deleteCliente(); opcion = 5">Buscar</button>
     </div>
 
-    <button (click)="opcion = 0; ">Regresar</button>
+    <div class="btnRegresar">
+        <button (click)="opcion = 0; ">Regresar</button>
+    </div>
 </div>

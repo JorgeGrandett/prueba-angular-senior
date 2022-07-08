@@ -1,0 +1,103 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1, h2 {
+    margin-top: 1em;
+    font-size: 1.8em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.optInit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10vh;
+}
+
+.optInit button {
+    margin: 1.5vh;
+    width: 55vw;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 0.4em;
+    background-color: rgb(206, 164, 240);
+    color: white;
+    border: 1px solid rgba(41, 41, 41, 0.301);
+}
+
+.optInit button:hover {
+    width: 65vw;
+    font-size: 1.2em;
+    color: rgb(206, 164, 240);
+    background-color: white;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+.addClienteInputs, .buscarInputs, .actualizarImputs, .actualizarInput {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 8vh;
+}
+
+.addClienteInputs input, .buscarInputs input, .actualizarImputs input, .actualizarInput input {
+    margin: 1.5vh;
+    border: 0px;
+    width: 70vw;
+    font-size: 1em;
+    padding: 0.4em;
+    border-bottom: 1px solid rgb(140, 141, 140);
+}
+
+.addClienteInputs button, .buscarInputs button, .actualizarImputs button {
+    margin: 1.5vh;
+    margin-top: 5vh;
+    width: 55vw;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 0.4em;
+    background-color: rgb(113, 149, 216);
+    color: rgb(255, 255, 255);
+    border: 1px solid rgba(41, 41, 41, 0.301);
+}
+
+.addClienteInputs button:hover, .buscarInputs button:hover, .actualizarImputs button:hover {
+    color: rgb(113, 149, 216);
+    background-color: rgb(246, 246, 250);
+    border: 1px solid rgba(0, 0, 0, 0.301);
+}
+
+.btnRegresar {
+    margin-top: 5vh;
+    display: flex;
+    justify-content: center;
+}
+
+.btnRegresar button {
+    margin: 1.5vh;
+    margin-top: 3vh;
+    width: 55vw;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 0.4em;
+    background-color: rgb(154, 235, 137);
+    color: rgb(255, 255, 255);
+    border: 1px solid rgba(41, 41, 41, 0.301);
+}
+
+.btnRegresar button:hover {
+    color: rgb(154, 235, 137);
+    background-color: rgb(246, 246, 250);
+    border: 1px solid rgba(0, 0, 0, 0.301);
+}
